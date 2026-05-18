@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namma-Skill Web Application</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Skill development tracker</p>
+        <h1>Namma-Skill</h1>
+      </div>
+      <a class="topbar__action" href="#apply">Apply now</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Self-employment and job-ready training</p>
+          <h2>Find nearby government skill courses before the batch starts.</h2>
+          <p>
+            Discover courses, check eligibility, request alerts, and generate a
+            candidate summary for training centers.
+          </p>
+          <div class="hero__actions">
+            <a href="#courses" class="button button--primary">Browse courses</a>
+            <a href="#centers" class="button button--secondary">View centers</a>
+          </div>
+        </div>
+        <div class="hero__panel" aria-label="Application summary">
+          <span class="status-pill">Live demo</span>
+          <strong>Upcoming batches</strong>
+          <div class="metric-grid">
+            <div>
+              <span>5</span>
+              <small>Trades</small>
+            </div>
+            <div>
+              <span>4</span>
+              <small>Centers</small>
+            </div>
+            <div>
+              <span>126</span>
+              <small>Open seats</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses" class="section">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Course finder</p>
+            <h2>Available Training Batches</h2>
+          </div>
+          <input id="searchInput" type="search" placeholder="Search trade or center" />
+        </div>
+
+        <div class="filters" aria-label="Course filters">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="Electrician">Electrician</button>
+          <button class="chip" data-filter="Sewing">Sewing</button>
+          <button class="chip" data-filter="Coding">Coding</button>
+          <button class="chip" data-filter="Mobile Repair">Mobile Repair</button>
+          <button class="chip" data-filter="Welding">Welding</button>
+          <button class="chip" data-filter="Short term">Short term</button>
+          <button class="chip" data-filter="Long term">Long term</button>
+        </div>
+
+        <div id="courseGrid" class="course-grid"></div>
+      </section>
+
+      <section id="centers" class="section section--split">
+        <div>
+          <p class="eyebrow">Nearby centers</p>
+          <h2>District Skill Center Map</h2>
+          <p class="muted">
+            A visual web demo of nearby government skill development centers.
+            Production versions can connect this to GPS and live batch data.
+          </p>
+          <div class="center-list">
+            <div><strong>Ramanagara Skill Center</strong><span>2.4 km</span></div>
+            <div><strong>Magadi Rural Training Hub</strong><span>8.1 km</span></div>
+            <div><strong>Kanakapura Livelihood Center</strong><span>14 km</span></div>
+            <div><strong>Channapatna Technical Institute</strong><span>18 km</span></div>
+          </div>
+        </div>
+        <div class="map-card" aria-label="Visual district map">
+          <span class="pin pin--one">Ramanagara</span>
+          <span class="pin pin--two">Magadi</span>
+          <span class="pin pin--three">Kanakapura</span>
+          <span class="pin pin--four">Channapatna</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Success stories</p>
+        <h2>Training to Opportunity</h2>
+        <div class="story-grid">
+          <article>
+            <strong>Asha, Sewing</strong>
+            <p>Completed tailoring training and started home-based blouse stitching.</p>
+          </article>
+          <article>
+            <strong>Ravi, Mobile Repair</strong>
+            <p>Opened a phone service desk after completing a short-term course.</p>
+          </article>
+          <article>
+            <strong>Meena, Coding</strong>
+            <p>Built portfolio projects and joined a local digital service center.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="apply" class="section section--split">
+        <form id="candidateForm" class="form-card">
+          <p class="eyebrow">Candidate profile</p>
+          <h2>Apply for a Course</h2>
+          <label>
+            Name
+            <input name="name" value="Arya Kumar" required />
+          </label>
+          <label>
+            Phone
+            <input name="phone" value="9876543210" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required />
+          </label>
+          <label>
+            Village
+            <input name="village" value="Bidadi" required />
+          </label>
+          <label>
+            Education
+            <select name="education">
+              <option>10th Pass</option>
+              <option>12th Pass</option>
+              <option>Diploma</option>
+              <option>Graduate</option>
+            </select>
+          </label>
+          <label>
+            Motivation
+            <textarea name="motivation">I want to learn a job-ready skill and become financially independent.</textarea>
+          </label>
+          <button class="button button--primary" type="submit">Generate candidate summary</button>
+        </form>
+
+        <aside class="summary-card">
+          <p class="eyebrow">Training center summary</p>
+          <h2>Candidate Summary</h2>
+          <div id="selectedCourse" class="selected-course">Selected course: Assistant Electrician</div>
+          <pre id="summaryOutput">Select a course and submit the form to generate the candidate summary.</pre>
+          <div class="summary-actions">
+            <button id="copySummary" class="button button--outline" type="button">Copy summary</button>
+            <button id="clearSaved" class="button button--ghost" type="button">Clear saved</button>
+          </div>
+          <p id="saveStatus" class="save-status">No application submitted yet.</p>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Saved locally</p>
+            <h2>Submitted Applications</h2>
+          </div>
+          <p class="muted">Applications are saved in this browser for demo use.</p>
+        </div>
+        <div id="savedApplications" class="saved-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Namma-Skill Web Application</strong>
+      <span>Built for academic demo and future production expansion.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

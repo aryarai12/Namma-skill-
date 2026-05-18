@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Namma-Skill Product Requirements Document</title>
+    <style>
+      body {
+        color: #16231d;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.55;
+        margin: 48px;
+      }
+      h1 {
+        color: #0e5d43;
+        font-size: 30px;
+        margin-bottom: 8px;
+      }
+      h2 {
+        border-bottom: 1px solid #dbe4dd;
+        color: #10251d;
+        font-size: 20px;
+        margin-top: 28px;
+        padding-bottom: 6px;
+      }
+      h3 {
+        color: #167a57;
+        font-size: 16px;
+        margin-top: 18px;
+      }
+      p, li {
+        font-size: 12.5px;
+      }
+      table {
+        border-collapse: collapse;
+        margin: 12px 0;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dbe4dd;
+        font-size: 12.5px;
+        padding: 9px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #eef4f0;
+        color: #10251d;
+      }
+      .meta {
+        background: #f6f8f5;
+        border: 1px solid #dbe4dd;
+        padding: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Namma-Skill Product Requirements Document</h1>
+    <p class="meta">
+      <strong>Project:</strong> Namma-Skill Web and Android Skill Development Course Tracker<br />
+      <strong>Document Type:</strong> Product Requirements Document<br />
+      <strong>Prepared For:</strong> Academic project submission and demo evaluation<br />
+      <strong>Version:</strong> 1.0
+    </p>
+
+    <h2>1. Product Overview</h2>
+    <p>
+      Namma-Skill is a web and Android-based skill development course tracker designed to help rural
+      and small-town youth discover nearby government training opportunities. The platform allows
+      candidates to search courses, filter by trade or duration, view training center information,
+      apply for a course, and generate a structured candidate summary for the training center.
+    </p>
+
+    <h2>2. Problem Statement</h2>
+    <p>
+      Many rural youth miss government skill development opportunities because batch information is
+      often shared through notice boards, local announcements, or center-level communication. This
+      creates an information gap between candidates and training centers. Candidates do not have a
+      simple centralized system to discover upcoming batches, check eligibility, view seats, or apply
+      quickly. Namma-Skill solves this by providing a simple digital course discovery and application
+      workflow.
+    </p>
+
+    <h2>3. Product Goals</h2>
+    <ul>
+      <li>Help candidates discover nearby government skill development courses.</li>
+      <li>Allow users to filter courses by trade and duration.</li>
+      <li>Display important course details such as eligibility, seats, stipend, and placement support.</li>
+      <li>Enable candidates to apply for courses through a simple form.</li>
+      <li>Generate a candidate summary that can be used by training centers for follow-up.</li>
+      <li>Store submitted applications locally for demonstration and review.</li>
+    </ul>
+
+    <h2>4. Target Users</h2>
+    <table>
+      <tr>
+        <th>User Type</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Rural Youth</td>
+        <td>Candidates looking for job-ready vocational training and self-employment opportunities.</td>
+      </tr>
+      <tr>
+        <td>Students</td>
+        <td>Students who have completed school or college and want practical skills.</td>
+      </tr>
+      <tr>
+        <td>Unemployed Candidates</td>
+        <td>Users searching for nearby courses that can improve employment chances.</td>
+      </tr>
+      <tr>
+        <td>Training Centers</td>
+        <td>Government skill centers that need structured candidate interest and application details.</td>
+      </tr>
+    </table>
+
+    <h2>5. Scope</h2>
+    <h3>In Scope</h3>
+    <ul>
+      <li>Course discovery interface.</li>
+      <li>Search and filtering by trade, title, center, short-term, and long-term duration.</li>
+      <li>Nearby training center display.</li>
+      <li>Candidate application form.</li>
+      <li>Candidate summary generation.</li>
+      <li>Local saved application history.</li>
+      <li>Web version using HTML, CSS, and JavaScript.</li>
+      <li>Kotlin Android version using native Android views and SharedPreferences.</li>
+    </ul>
+
+    <h3>Out of Scope for Current Version</h3>
+    <ul>
+      <li>Real backend database.</li>
+      <li>Authentication for candidates or training centers.</li>
+      <li>Real GPS location tracking.</li>
+      <li>Real SMS, WhatsApp, or push notifications.</li>
+      <li>Online payment or certificate verification.</li>
+      <li>Admin dashboard for adding live batches.</li>
+    </ul>
+
+    <h2>6. Key Features</h2>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Description</th>
+        <th>Priority</th>
+      </tr>
+      <tr>
+        <td>Course Listing</td>
+        <td>Shows available vocational courses with trade, duration, center, eligibility, seats, stipend, and support details.</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Search</td>
+        <td>Allows users to search by course title, trade, or center name.</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Filters</td>
+        <td>Allows filtering by Electrician, Sewing, Coding, Mobile Repair, Welding, Short term, and Long term.</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Alert Me</td>
+        <td>Simulates saving interest in a selected trade for batch alerts.</td>
+        <td>Medium</td>
+      </tr>
+      <tr>
+        <td>Apply</td>
+        <td>Lets the candidate select a course and fill out application details.</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Candidate Summary</td>
+        <td>Generates a structured summary for trainer callback and document verification.</td>
+        <td>High</td>
+      </tr>
+      <tr>
+        <td>Saved Applications</td>
+        <td>Stores submitted applications locally for demo and review.</td>
+        <td>Medium</td>
+      </tr>
+    </table>
+
+    <h2>7. Functional Requirements</h2>
+    <ul>
+      <li>The system shall display a list of available training courses.</li>
+      <li>The system shall allow users to search courses by title, trade, or center.</li>
+      <li>The system shall allow users to filter courses by trade and duration.</li>
+      <li>The system shall allow users to select a course for application.</li>
+      <li>The system shall collect candidate name, phone number, village, education, and motivation.</li>
+      <li>The system shall validate required application fields.</li>
+      <li>The system shall generate a candidate summary after submission.</li>
+      <li>The system shall save submitted applications locally.</li>
+      <li>The system shall allow users to view saved application summaries.</li>
+      <li>The system shall allow users to copy or clear saved summaries.</li>
+    </ul>
+
+    <h2>8. Non-Functional Requirements</h2>
+    <ul>
+      <li>The interface should be simple, clean, and easy to understand.</li>
+      <li>The application should work without a backend for demo purposes.</li>
+      <li>The web version should run in a modern browser.</li>
+      <li>The Android version should run on Android devices with minimum SDK 23 or above.</li>
+      <li>The app should use local storage safely for demo data.</li>
+      <li>The design should be mobile-friendly and suitable for academic evaluation.</li>
+    </ul>
+
+    <h2>9. User Flow</h2>
+    <ol>
+      <li>User opens the Namma-Skill application.</li>
+      <li>User browses available training courses.</li>
+      <li>User searches or filters courses by trade, center, or duration.</li>
+      <li>User selects a course and reviews eligibility, seats, stipend, and support.</li>
+      <li>User optionally activates an alert for a trade.</li>
+      <li>User fills the candidate application form.</li>
+      <li>User submits the form.</li>
+      <li>System generates a candidate summary.</li>
+      <li>System saves the application locally.</li>
+      <li>User can view, copy, or clear saved application data.</li>
+    </ol>
+
+    <h2>10. Technology Stack</h2>
+    <table>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+      </tr>
+      <tr>
+        <td>Web Frontend</td>
+        <td>HTML, CSS, JavaScript</td>
+      </tr>
+      <tr>
+        <td>Web Storage</td>
+        <td>Browser LocalStorage</td>
+      </tr>
+      <tr>
+        <td>Android App</td>
+        <td>Kotlin, Android SDK, Native Android Views</td>
+      </tr>
+      <tr>
+        <td>Android Storage</td>
+        <td>SharedPreferences</td>
+      </tr>
+      <tr>
+        <td>Build Tool</td>
+        <td>Gradle, Android Studio</td>
+      </tr>
+    </table>
+
+    <h2>11. Data Model</h2>
+    <table>
+      <tr>
+        <th>Entity</th>
+        <th>Fields</th>
+      </tr>
+      <tr>
+        <td>Course</td>
+        <td>id, title, trade, duration, center, eligibility, seats, stipend, placement</td>
+      </tr>
+      <tr>
+        <td>Candidate</td>
+        <td>name, phone, village, education, motivation</td>
+      </tr>
+      <tr>
+        <td>Application</td>
+        <td>savedAt, selected course, candidate details, generated summary</td>
+      </tr>
+    </table>
+
+    <h2>12. Success Metrics</h2>
+    <ul>
+      <li>User can find a suitable course in less than one minute.</li>
+      <li>User can submit a demo application successfully.</li>
+      <li>Training center receives a clear candidate summary.</li>
+      <li>Application data persists locally after page refresh or app restart.</li>
+    </ul>
+
+    <h2>13. Risks and Limitations</h2>
+    <ul>
+      <li>Current version does not use a real backend.</li>
+      <li>Course and center data are static demo data.</li>
+      <li>Notifications are simulated.</li>
+      <li>Local storage is not suitable for production multi-device sync.</li>
+      <li>Admin dashboard is not included in the current version.</li>
+    </ul>
+
+    <h2>14. Future Enhancements</h2>
+    <ul>
+      <li>Add Firebase, Supabase, PostgreSQL, or MySQL backend.</li>
+      <li>Add admin login for training centers.</li>
+      <li>Add real SMS, WhatsApp, or push notifications.</li>
+      <li>Add GPS-based center locator.</li>
+      <li>Add multilingual support for Kannada, Hindi, and English.</li>
+      <li>Add document upload for ID proof and education certificate.</li>
+      <li>Add AI-based course recommendation from candidate profile.</li>
+      <li>Deploy the web application online.</li>
+      <li>Publish signed Android APK or Android App Bundle.</li>
+    </ul>
+
+    <h2>15. Conclusion</h2>
+    <p>
+      Namma-Skill provides a practical digital solution for connecting rural youth with nearby skill
+      development opportunities. The current web and Kotlin Android versions demonstrate course
+      discovery, filtering, application submission, candidate summary generation, and local saved
+      history. The project is suitable for academic demonstration and can be expanded into a production
+      platform with backend, authentication, live data, and notification support.
+    </p>
+  </body>
+</html>
